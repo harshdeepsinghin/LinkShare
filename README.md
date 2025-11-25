@@ -24,12 +24,12 @@ LinkShare is a lightweight Chrome extension that allows you to quickly share the
 1. Download or clone this repository
 2. Open Chrome and go to `chrome://extensions/`
 3. Enable "Developer mode" in the top right
-4. Click "Load unpacked" and select the `ShareTab` folder
+4. Click "Load unpacked" and select the `LinkShare` folder
 5. The extension is now installed and ready to use!
 
 ## Usage
 
-1. Click the ShareTab icon in your Chrome toolbar
+1. Click the LinkShare icon in your Chrome toolbar
 2. Choose your preferred sharing platform (Telegram or WhatsApp)
 3. The current tab's URL will be shared instantly
 

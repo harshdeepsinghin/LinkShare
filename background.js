@@ -1,20 +1,20 @@
 chrome.runtime.onInstalled.addListener(() => {
     chrome.contextMenus.create({
-        id: "shareTab",
-        title: "ShareTab",
+        id: "linkShare",
+        title: "LinkShare",
         contexts: ["page"]
     });
 
     chrome.contextMenus.create({
         id: "shareTelegram",
-        parentId: "shareTab",
+        parentId: "linkShare",
         title: "Telegram",
         contexts: ["page"]
     });
 
     chrome.contextMenus.create({
         id: "shareWhatsApp",
-        parentId: "shareTab",
+        parentId: "linkShare",
         title: "WhatsApp",
         contexts: ["page"]
     });
