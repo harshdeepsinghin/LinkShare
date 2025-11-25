@@ -61,6 +61,30 @@ sips -z 16 16 icons/logoshare.png --out icons/icon16.png
 2. Reload the extension in `chrome://extensions/`
 3. Test the functionality
 
+### Versioning and Releases
+
+This project uses [release-please](https://github.com/google-github-actions/release-please-action) for automated versioning and releases. To trigger a new release:
+
+1. Make your changes
+2. Commit using conventional commit format:
+   - `feat:` for new features (minor version bump)
+   - `fix:` for bug fixes (patch version bump)
+   - `chore:` for maintenance (patch version bump)
+   - `docs:` for documentation (no version bump)
+
+Example commits:
+```
+git commit -m "feat: add support for new messaging platform"
+git commit -m "fix: resolve sharing issue with long URLs"
+```
+
+3. Push to the `main` branch
+4. Release-please will automatically:
+   - Create a release PR with version bump
+   - Update `manifest.json` version
+   - Generate changelog
+   - Create GitHub release with ZIP asset
+
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.

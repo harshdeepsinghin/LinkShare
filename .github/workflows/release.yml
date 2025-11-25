@@ -1,0 +1,48 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    outputs:
+      release_created: ${{ steps.release.outputs.release_created }}
+      tag_name: ${{ steps.release.outputs.tag_name }}
+    steps:
+      - uses: google-github-actions/release-please-action@v4
+        id: release
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          release-type: node
+          package-name: ShareTab
+          extra-files: |
+            manifest.json
+
+  deploy:
+    needs: release
+    if: ${{ needs.release.outputs.release_created }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Create ZIP for Chrome Web Store
+        run: |
+          zip -r sharetab-${{ needs.release.outputs.tag_name }}.zip . -x "*.git*" ".github/*" "scripts/*" "README.md"
+
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ needs.release.outputs.upload_url }}
+          asset_path: sharetab-${{ needs.release.outputs.tag_name }}.zip
+          asset_name: sharetab-${{ needs.release.outputs.tag_name }}.zip
+          asset_content_type: application/zip
