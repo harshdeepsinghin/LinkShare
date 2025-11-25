@@ -1,64 +1,91 @@
-# ShareTab — Update Icon
+# ShareTab - Chrome Extension
 
-✅ I updated the extension `manifest.json` to use the `icons/logoshare.png` file as the extension icon for the toolbar and for the package icons (16/48/128).
+[![Chrome Web Store](https://img.shields.io/badge/Chrome%20Web%20Store-Download-blue)](https://chrome.google.com/webstore)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-If you'd like perfectly-sized icons for each size (recommended):
+ShareTab is a lightweight Chrome extension that allows you to quickly share the current tab's URL to popular messaging apps like Telegram and WhatsApp. Perfect for sharing articles, videos, or any web content with friends and colleagues instantly.
 
-macOS built-in `sips` commands to generate scaled icon files from `icons/logoshare.png` (run in the repository root):
+## Features
+
+- 🚀 **Instant Sharing**: Share the current tab URL with a single click
+- 📱 **Multi-Platform Support**: Share to Telegram and WhatsApp
+- 🎨 **Clean UI**: Simple and intuitive popup interface
+- ⚡ **Fast Performance**: Lightweight and efficient
+- 🔒 **Privacy Focused**: No data collection or tracking
+
+## Installation
+
+### From Chrome Web Store (Recommended)
+1. Visit the [Chrome Web Store page](https://chrome.google.com/webstore)
+2. Click "Add to Chrome"
+3. Confirm the installation
+
+### Manual Installation (For Development)
+1. Download or clone this repository
+2. Open Chrome and go to `chrome://extensions/`
+3. Enable "Developer mode" in the top right
+4. Click "Load unpacked" and select the `ShareTab` folder
+5. The extension is now installed and ready to use!
+
+## Usage
+
+1. Click the ShareTab icon in your Chrome toolbar
+2. Choose your preferred sharing platform (Telegram or WhatsApp)
+3. The current tab's URL will be shared instantly
+
+## Screenshots
+
+*Add screenshots here showing the extension in action*
+
+## Development
+
+### Prerequisites
+- Chrome browser
+- Basic knowledge of HTML, CSS, and JavaScript
+
+### Building Icons
+The extension uses multiple icon sizes for different contexts. To generate them from the source logo:
 
 ```fish
+# Using macOS sips
 sips -z 128 128 icons/logoshare.png --out icons/icon128.png
 sips -z 48 48 icons/logoshare.png --out icons/icon48.png
 sips -z 16 16 icons/logoshare.png --out icons/icon16.png
-```
 
-Alternatively, using ImageMagick (`convert`) if you have it installed:
-
-```fish
-convert icons/logoshare.png -resize 128x128 icons/icon128.png
-convert icons/logoshare.png -resize 48x48 icons/icon48.png
-convert icons/logoshare.png -resize 16x16 icons/icon16.png
-```
-
-After generating the `iconXX.png` files, update `manifest.json` to use them instead of the single `logoshare.png` if you prefer each size to be specific:
-
-```json
-"action": {
-  "default_popup": "popup.html",
-  "default_icon": {
-    "16": "icons/icon16.png",
-    "48": "icons/icon48.png",
-    "128": "icons/icon128.png"
-  }
-},
-"icons": {
-  "16": "icons/icon16.png",
-  "48": "icons/icon48.png",
-  "128": "icons/icon128.png"
-}
-```
-
-If you want me to generate and add those `iconNN.png` files from the provided logo (or rename/copy any existing file), I can do that next — but I can't transform the raw PNG binary attached to this chat unless you either upload the files (so I can write them exactly), or allow me to copy the existing file already present in the `icons/` folder.
-
-Alternatively, you can run a small helper script I added to `scripts/gen-icons.fish` to generate the icons (macOS):
-
-```fish
+# Or using the provided script
 ./scripts/gen-icons.fish
 ```
 
-After running the script, the `icons/` directory will contain `icon16.png`, `icon48.png`, and `icon128.png`. The project `manifest.json` has been updated to use those generated files by default.
+### Testing
+1. Make changes to the code
+2. Reload the extension in `chrome://extensions/`
+3. Test the functionality
 
-To test the extension locally (reload in Chrome/Edge):
+## Contributing
 
-1. Open chrome://extensions/ (or edge://extensions/)
-2. Enable "Developer mode" (top-right)
-3. Click "Load unpacked" and select this `ShareTab` folder
-4. Click the Reload icon for the extension after making any changes
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-If the toolbar icon doesn't change immediately, make sure you either provide correctly sized `icon16.png`, `icon48.png`, and `icon128.png` in `icons/` or use `icons/logoshare.png` that is large enough.
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-Let me know if you want me to also create `icon16.png`, `icon48.png`, and `icon128.png` from `icons/logoshare.png` automatically and update `manifest.json` to use them (I can run shell commands appropriate for macOS to resize images), or if you'd prefer to provide new files.  
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Keywords
+
+chrome extension, share tab, telegram share, whatsapp share, browser extension, productivity tool, social sharing, instant share, web sharing, messaging integration
+
+## Support
+
+If you find this extension helpful, please consider:
+- ⭐ Starring this repository
+- 📢 Sharing with friends
+- 🐛 Reporting bugs or requesting features
 
 ---
 
-⚠️ NOTE: I updated `manifest.json` to use the single `icons/logoshare.png` for all sizes so the extension will immediately use the logo you attached (assuming `icons/logoshare.png` is the same). If it's not, place the new PNG into `icons/logoshare.png` or tell me the exact filename to use and I'll update `manifest.json` accordingly.
+*Made with ❤️ for the Chrome community*
