@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "ShareTab",
+  "name": "LinkShare",
   "version": "1.0",
   "description": "Share the current tab to Telegram or WhatsApp",
   "permissions": [

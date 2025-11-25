@@ -1,9 +1,9 @@
-# ShareTab - Chrome Extension
+# LinkShare - Chrome Extension
 
 [![Chrome Web Store](https://img.shields.io/badge/Chrome%20Web%20Store-Download-blue)](https://chrome.google.com/webstore)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-ShareTab is a lightweight Chrome extension that allows you to quickly share the current tab's URL to popular messaging apps like Telegram and WhatsApp. Perfect for sharing articles, videos, or any web content with friends and colleagues instantly.
+LinkShare is a lightweight Chrome extension that allows you to quickly share the current tab's URL to popular messaging apps like Telegram and WhatsApp. Perfect for sharing articles, videos, or any web content with friends and colleagues instantly.
 
 ## Features
 
