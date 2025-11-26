@@ -1,6 +1,5 @@
 # LinkShare - Chrome Extension
 
-[![Chrome Web Store](https://img.shields.io/badge/Chrome%20Web%20Store-Download-blue)](https://chrome.google.com/webstore)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 LinkShare is a lightweight Chrome extension that allows you to quickly share the current tab's URL to popular messaging apps like Telegram and WhatsApp. Perfect for sharing articles, videos, or any web content with friends and colleagues instantly.
@@ -15,11 +14,6 @@ LinkShare is a lightweight Chrome extension that allows you to quickly share the
 
 ## Installation
 
-### From Chrome Web Store (Recommended)
-1. Visit the [Chrome Web Store page](https://chrome.google.com/webstore)
-2. Click "Add to Chrome"
-3. Confirm the installation
-
 ### Manual Installation (For Development)
 1. Download or clone this repository
 2. Open Chrome and go to `chrome://extensions/`
@@ -32,10 +26,6 @@ LinkShare is a lightweight Chrome extension that allows you to quickly share the
 1. Click the LinkShare icon in your Chrome toolbar
 2. Choose your preferred sharing platform (Telegram or WhatsApp)
 3. The current tab's URL will be shared instantly
-
-## Screenshots
-
-*Add screenshots here showing the extension in action*
 
 ## Development
 
