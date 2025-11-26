@@ -2,7 +2,7 @@
 # Generate extension icons from `icons/logoshare.png` using sips (macOS)
 # Usage: ./scripts/gen-icons.fish
 
-set src icons/logoshare.png
+set src icons/LinkShare_Logo.png
 set out_dir icons
 
 if not test -f $src
