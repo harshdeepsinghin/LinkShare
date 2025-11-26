@@ -7,7 +7,6 @@ LinkShare is a lightweight Chrome extension that allows you to quickly share the
 ## Features
 
 - 🚀 **Instant Sharing**: Share the current tab URL with a single click
-- 📱 **Multi-Platform Support**: Share to Telegram and WhatsApp
 - 🎨 **Clean UI**: Simple and intuitive popup interface
 - ⚡ **Fast Performance**: Lightweight and efficient
 - 🔒 **Privacy Focused**: No data collection or tracking
