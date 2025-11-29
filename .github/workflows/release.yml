@@ -2,44 +2,38 @@ name: Release
 
 on:
   push:
-    branches:
-      - main
+    tags:
+      - 'v*'
 
 permissions:
   contents: write
-  pull-requests: write
 
 jobs:
-  release:
+  build:
     runs-on: ubuntu-latest
-    outputs:
-      release_created: ${{ steps.release.outputs.release_created }}
-      tag_name: ${{ steps.release.outputs.tag_name }}
-    steps:
-      - uses: googleapis/release-please-action@v4
-        id: release
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          config-file: .github/release-please-config.json
 
-  deploy:
-    needs: release
-    if: ${{ needs.release.outputs.release_created }}
-    runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Create ZIP for Chrome Web Store
+      - name: Build Chrome Extension (MV3)
         run: |
-          zip -r linkshare-${{ needs.release.outputs.tag_name }}.zip . -x "*.git*" ".github/*" "scripts/*" "README.md"
+          zip -r LinkShare-Chrome-${{ github.ref_name }}.zip . -x "*.git*" ".github/*" "node_modules/*" "*.DS_Store" "manifest.firefox.json" "firefox_dist/*"
 
-      - name: Upload Release Asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build Firefox Extension (MV2)
+        run: |
+          mkdir firefox_build
+          cp background.js popup.js popup.css popup.html firefox_build/
+          cp -r icons firefox_build/
+          cp manifest.firefox.json firefox_build/manifest.json
+          cd firefox_build
+          zip -r ../LinkShare-Firefox-${{ github.ref_name }}.zip .
+          cd ..
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
         with:
-          upload_url: ${{ needs.release.outputs.upload_url }}
-          asset_path: linkshare-${{ needs.release.outputs.tag_name }}.zip
-          asset_name: linkshare-${{ needs.release.outputs.tag_name }}.zip
-          asset_content_type: application/zip
+          files: |
+            LinkShare-Chrome-${{ github.ref_name }}.zip
+            LinkShare-Firefox-${{ github.ref_name }}.zip
+          generate_release_notes: true

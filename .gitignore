@@ -1,0 +1,5 @@
+.DS_Store
+*.log
+firefox_dist/
+LinkShare-Chrome.zip
+LinkShare-Firefox.zip
