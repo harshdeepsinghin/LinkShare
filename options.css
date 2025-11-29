@@ -1,12 +1,10 @@
 :root {
     --bg-color: #e6f6ff;
-    /* Light green background */
     --sidebar-bg: #ffffff;
     --card-bg: #ffffff;
     --text-primary: #111827;
     --text-secondary: #6b7280;
     --accent-color: #2481cc;
-    /* Telegram Blue as accent */
     --accent-hover: #1a66a6;
     --border-color: #e5e7eb;
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -84,7 +82,6 @@ body {
 
 .nav-item.active {
     background-color: #e6f7eb;
-    /* Light green tint */
     color: var(--accent-color);
 }
 
