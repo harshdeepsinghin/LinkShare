@@ -8,7 +8,7 @@ rm -rf firefox_dist LinkShare-Chrome.zip LinkShare-Firefox.zip
 
 # Prepare Firefox distribution
 mkdir -p firefox_dist
-cp background.js popup.js popup.css popup.html firefox_dist/
+cp background.js popup.js popup.css popup.html options.html options.css options.js firefox_dist/
 cp -r icons firefox_dist/
 cp manifest.firefox.json firefox_dist/manifest.json
 
